@@ -4,13 +4,14 @@ An example app showing how DDD (Domain Driven Design) and CQRS (Command Query Re
 
 # Start it up
 
-Set the server API URL in a `.env` file in the `client` folder.
+Set the environment variables in a `.env` file in the `server` folder.
 
 ```
-REACT_APP_API_URL=http://localhost:7000
+PORT=7000
+JWT_SIGNING_KEY=secret
 ```
 
-Open one terminal to start up server:
+Open a terminal to start up server:
 
 ```
 cd server
@@ -18,10 +19,16 @@ npm install
 npm run start
 ```
 
+Set the server API URL in a `.env` file in the `client` folder.
+
+```
+REACT_APP_BACKEND_URL=http://localhost:7000
+```
+
 Open another terminal to start up client:
 
 ```
-cd server
+cd client
 npm install
 npm run start
 ```
