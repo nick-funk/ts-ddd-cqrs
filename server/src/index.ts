@@ -3,7 +3,7 @@ import { graphqlHTTP } from "express-graphql";
 import dotenv from "dotenv";
 
 import { constructGraph } from "./graph/constructGraph";
-import { Db } from "./data/db";
+
 import createCommands from "./commands";
 import createQueries from "./queries";
 import createContext from "./data";
@@ -13,15 +13,14 @@ dotenv.config();
 const PORT = process.env.PORT ? process.env.PORT : 7000;
 
 const run = () => {
-  const db = new Db();
-  const graph = constructGraph(db);
+  const dataContext = createContext();
+  const queries = createQueries(dataContext.users);
+  const commands = createCommands(queries, dataContext);
+
+  const graph = constructGraph(queries, commands);
 
   const app = express();
   app.use(express.json());
-
-  const dataContext = createContext();
-  const queries = createQueries(dataContext.users);
-  const commands = createCommands(queries);
 
   app.use(
     "/api",

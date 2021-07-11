@@ -1,3 +1,0 @@
-## Query
-  hello(lang: String): String
-## EndQuery

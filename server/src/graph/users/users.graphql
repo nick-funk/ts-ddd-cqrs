@@ -1,0 +1,16 @@
+## Types
+  type User {
+    id: ID!
+    name: String
+  }
+## EndTypes
+
+## Mutation
+  createUser(name: String!, password: String!): User
+## EndMutation
+
+## Query
+  findUserByName(name: String!): User
+  findUserByID(id: ID!): User
+  users: [User!]
+## EndQuery

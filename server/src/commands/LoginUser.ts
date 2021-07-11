@@ -20,10 +20,11 @@ export default class LoginUser {
 
   public execute(user: string, pass: string): LoginUserResult {
     try {
-      const foundUser = this.queries.lookUpUserByName.query(user);
+      const foundUser = this.queries.findUserByName.query(user);
 
       // This is just doing a text comparison, should really
       // be hashed and salted in real world scenarios
+      // Consider: https://www.npmjs.com/package/bcrypt
       if (foundUser && foundUser.password === pass) {
         const token = jwt.sign({ user }, JWT_SIGNING_KEY, {
           expiresIn: "24h",

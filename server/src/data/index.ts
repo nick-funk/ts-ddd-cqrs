@@ -1,6 +1,10 @@
 import { UserRepository } from "./userRepository";
 
-const createContext = () => {
+export interface DataContext {
+  users: UserRepository;
+}
+
+const createContext = (): DataContext => {
   const users = new UserRepository();
   users.seed();
 

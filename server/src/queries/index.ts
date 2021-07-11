@@ -1,15 +1,23 @@
 import { UserRepository } from "../data/userRepository";
-import LookUpUserByName from "./lookUpUserByName";
+import FindUserByID from "./findUserByID";
+import FindUserByName from "./findUserByName";
+import GetAllUsers from "./getAllUsers";
 
 export interface Queries {
-  lookUpUserByName: LookUpUserByName;
+  findUserByName: FindUserByName;
+  findUserByID: FindUserByID;
+  getAllUsers: GetAllUsers;
 }
 
 const createQueries = (users: UserRepository): Queries => {
-  const lookUpUserByName = new LookUpUserByName(users);
+  const findUserByName = new FindUserByName(users);
+  const findUserByID = new FindUserByID(users);
+  const getAllUsers = new GetAllUsers(users);
 
   return {
-    lookUpUserByName,
+    findUserByName,
+    findUserByID,
+    getAllUsers,
   };
 };
 
