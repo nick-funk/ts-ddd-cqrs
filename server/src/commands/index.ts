@@ -1,12 +1,12 @@
 import { Queries } from "../queries";
-import LoginUser from "./LoginUser"
+import LoginUser from "./LoginUser";
 
 const createCommands = (queries: Queries) => {
-    const loginUser = new LoginUser(queries);
+  const loginUser = new LoginUser(queries);
 
-    return {
-        loginUser
-    }
-}
+  return {
+    loginUser,
+  };
+};
 
 export default createCommands;

@@ -16,7 +16,7 @@ export class Db {
   }
 
   public get(id: string) {
-    return this.items.find(i => i.id === id);
+    return this.items.find((i) => i.id === id);
   }
 
   public all() {

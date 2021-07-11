@@ -23,11 +23,14 @@ const run = () => {
   const queries = createQueries(dataContext.users);
   const commands = createCommands(queries);
 
-  app.use("/api", graphqlHTTP({
-    schema: graph.schema,
-    rootValue: graph.root,
-    graphiql: true,
-  }));
+  app.use(
+    "/api",
+    graphqlHTTP({
+      schema: graph.schema,
+      rootValue: graph.root,
+      graphiql: true,
+    })
+  );
 
   app.post("/auth/login", (req, res) => {
     const user = req.body.user;
@@ -38,10 +41,10 @@ const run = () => {
     }
 
     const result = commands.loginUser.execute(user, pass);
-    
+
     if (result.success) {
       res.send({
-        token: result.token
+        token: result.token,
       });
     } else {
       res.sendStatus(404);
@@ -51,6 +54,6 @@ const run = () => {
   app.listen(PORT, () => {
     console.log(`listening on port ${PORT}...`);
   });
-}
+};
 
 run();
