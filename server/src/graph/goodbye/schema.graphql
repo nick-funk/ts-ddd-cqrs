@@ -1,0 +1,3 @@
+## Query
+  goodbye(lang: String): String
+## EndQuery

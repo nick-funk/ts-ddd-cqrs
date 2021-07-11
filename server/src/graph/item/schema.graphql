@@ -1,0 +1,15 @@
+## Types
+  type Item {
+    id: ID!
+    value: String
+  }
+## EndTypes
+
+## Mutation
+  insertItem(id: ID!, value: String!): Item
+## EndMutation
+
+## Query
+  getItem(id: ID!): Item
+  items: [Item!]
+## EndQuery
