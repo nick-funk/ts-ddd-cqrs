@@ -1,12 +1,14 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import { constructGraph } from "./graph/constructGraph";
 
 import createCommands from "./commands";
 import createQueries from "./queries";
 import createContext from "./data";
+import computeCORSPolicy from "./cors";
 
 dotenv.config();
 
@@ -20,6 +22,7 @@ const run = () => {
   const graph = constructGraph(queries, commands);
 
   const app = express();
+  app.use(cors(computeCORSPolicy()));
   app.use(express.json());
 
   app.use(
@@ -37,6 +40,7 @@ const run = () => {
 
     if (!user || !pass) {
       res.sendStatus(400);
+      return;
     }
 
     const result = commands.loginUser.execute(user, pass);

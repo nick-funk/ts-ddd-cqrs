@@ -9,6 +9,7 @@ Set the environment variables in a `.env` file in the `server` folder.
 ```
 PORT=7000
 JWT_SIGNING_KEY=secret
+ALLOWED_ORIGINS=http://localhost:7000,http://localhost:3000
 ```
 
 Open a terminal to start up server:
