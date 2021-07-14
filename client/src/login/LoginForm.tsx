@@ -17,8 +17,6 @@ const LoginForm: FunctionComponent<Props> = () => {
 
     setMessage(null);
 
-    console.log(user, password);
-
     const result = await fetch(loginURL, {
       method: "POST",
       mode: "cors",
@@ -57,7 +55,7 @@ const LoginForm: FunctionComponent<Props> = () => {
   );
 
   return (
-    <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10 max-w-md">
+    <div className="relative m-1 px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10 max-w-md">
       <div className="space-y-4">
         <div className="relative">
           <label htmlFor="user" className="text-gray-600 text-sm w-full">

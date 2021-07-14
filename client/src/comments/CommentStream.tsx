@@ -41,7 +41,7 @@ const CommentStream: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className="relative py-10">
+    <div className="relative m-1 py-10 space-y-2">
       {comments.map((c, i) => (
         <Comment key={i} comment={c} />
       ))}

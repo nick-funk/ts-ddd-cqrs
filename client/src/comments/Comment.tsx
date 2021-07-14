@@ -16,7 +16,6 @@ interface Props {
 const Comment: FunctionComponent<Props> = ({ comment }) => {
   return (
     <div
-      key={comment.id}
       className="relative px-2 py-4 bg-white shadow-lg sm:rounded-3xl sm:p-6 max-w-md"
     >
       <div className="relative py-1 font-thin">{comment.author.name}</div>
