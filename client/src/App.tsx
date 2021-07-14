@@ -2,17 +2,13 @@ import React from "react";
 
 import "./App.css";
 import LoginForm from "./login/LoginForm";
-import getBackendURL from "./getBackendURL";
+import CommentStream from "./comments/CommentStream";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          {getBackendURL()}
-        </p>
-        <LoginForm />
-      </header>
+      <LoginForm />
+      <CommentStream />
     </div>
   );
 }

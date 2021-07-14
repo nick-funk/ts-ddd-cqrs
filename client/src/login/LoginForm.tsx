@@ -5,7 +5,7 @@ import { storeAuthToken } from "./authToken";
 
 interface Props {}
 
-const LoginForm: FunctionComponent<Props> = ({}) => {
+const LoginForm: FunctionComponent<Props> = () => {
   const [user, setUser] = useState("");
   const [password, setPass] = useState("");
 
@@ -60,36 +60,34 @@ const LoginForm: FunctionComponent<Props> = ({}) => {
     <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-10 max-w-md">
       <div className="space-y-4">
         <div className="relative">
-          <input
-            id="user"
-            name="user"
-            type="text"
-            className="border-b-2 border-gray-300 text-gray-600 text-sm"
-            placeholder="user"
-            onChange={onUserChange}
-          />
-          <label
-            htmlFor="user"
-            className="absolute left-0 text-gray-600 text-sm"
-          >
+          <label htmlFor="user" className="text-gray-600 text-sm w-full">
             User
           </label>
+          <div className="relative">
+            <input
+              id="user"
+              name="user"
+              type="text"
+              className="border-b-2 border-gray-300 text-gray-600 text-sm"
+              placeholder="user"
+              onChange={onUserChange}
+            />
+          </div>
         </div>
         <div className="relative">
-          <input
-            id="password"
-            name="password"
-            type="password"
-            className="border-b-2 border-gray-300 text-gray-600 text-sm"
-            placeholder="password"
-            onChange={onPassChange}
-          />
-          <label
-            htmlFor="password"
-            className="absolute left-0 text-gray-600 text-sm"
-          >
+          <label htmlFor="password" className="text-gray-600 text-sm w-full">
             Password
           </label>
+          <div className="relative">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className="border-b-2 border-gray-300 text-gray-600 text-sm"
+              placeholder="password"
+              onChange={onPassChange}
+            />
+          </div>
         </div>
         <div className="relative">
           <button
