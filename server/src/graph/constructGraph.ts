@@ -4,6 +4,7 @@ import schema from "../../graph-tools/output/schema.graphql";
 import { Queries } from "../queries";
 import { usersGraph } from "./users";
 import { Commands } from "../commands";
+import { commentsGraph } from "./comments";
 
 export const constructGraph = (
   queries: Queries,
@@ -11,6 +12,7 @@ export const constructGraph = (
 ) => {
   const subRoots = [
     usersGraph(queries, commands),
+    commentsGraph(queries, commands),
   ];
   const builtSchema = buildSchema(schema);
 

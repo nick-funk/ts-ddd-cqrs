@@ -3,6 +3,11 @@ const computeCORSPolicy = () => {
 
   return {
     origin: (origin, callback) => {
+      // if undefined, is the server's own origin
+      if (!origin) {
+        return callback(null, true);
+      }
+
       // origin is not in list of valid origins, reject
       if (allowed.indexOf(origin) === -1) {
         return callback(new Error("The CORS policy for this site does not allow access from the specified origin."), false);

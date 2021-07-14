@@ -1,0 +1,15 @@
+## Types
+  type Comment {
+    id: ID!
+    body: String
+    author: User
+  }
+## EndTypes
+
+## Mutation
+  createComment(authorID: ID!, body: String): Comment
+## EndMutation
+
+## Query
+  comments: [Comment!]
+## EndQuery

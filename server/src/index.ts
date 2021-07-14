@@ -16,7 +16,7 @@ const PORT = process.env.PORT ? process.env.PORT : 7000;
 
 const run = () => {
   const dataContext = createContext();
-  const queries = createQueries(dataContext.users);
+  const queries = createQueries(dataContext.users, dataContext.comments);
   const commands = createCommands(queries, dataContext);
 
   const graph = constructGraph(queries, commands);
